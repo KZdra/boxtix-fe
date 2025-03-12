@@ -27,10 +27,9 @@
 </template>
 
 <script setup lang="ts">
-import type { Event } from "./types";
 
 defineProps<{
-  event: Event;
+  event: any;
 }>();
 
 defineEmits(["click"]);
