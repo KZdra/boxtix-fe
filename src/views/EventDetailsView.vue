@@ -1,39 +1,34 @@
 <template>
-  <div class="w-full bg-white min-h-[screen]">
-    <Header />
-    <main class="flex flex-col items-center">
-      <div class="px-4 py-7 w-full max-w-[1120px]">
-        <Breadcrumb />
-        <div class="flex gap-10 max-md:flex-col">
-          <EventBanner
-            :banner-image="eventDetails.bannerImage"
-            altText="Event Banner"
-          />
-          <EventInfo v-bind="eventDetails" />
+  <MainLayout>
+    <div class="w-full bg-white min-h-[screen]">
+      <Header />
+      <main class="flex flex-col items-center">
+        <div class="px-4 py-7 w-full max-w-[1120px]">
+          <Breadcrumb />
+          <div class="flex gap-10 max-md:flex-col">
+            <EventBanner :banner-image="eventDetails.bannerImage" altText="Event Banner" />
+            <EventInfo v-bind="eventDetails" />
+          </div>
+          <div class="flex gap-10 px-4 mt-10 max-w-[1120px] max-md:flex-col">
+            <EventDescription :description="eventDetails.description" :requirements="eventDetails.requirements" />
+            <EventTicketSidebar :starting-price="eventDetails.startingPrice" />
+          </div>
         </div>
-        <div class="flex gap-10 px-4 mt-10 max-w-[1120px] max-md:flex-col">
-          <EventDescription
-            :description="eventDetails.description"
-            :requirements="eventDetails.requirements"
-          />
-          <EventTicketSidebar :starting-price="eventDetails.startingPrice" />
-        </div>
-      </div>
-    </main>
-    <Footer />
-  </div>
+      </main>
+      <Footer />
+    </div>
+  </MainLayout>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import Header from "./Header.vue";
-import Breadcrumb from "./Breadcrumb.vue";
-import EventBanner from "./EventBanner.vue";
-import EventInfo from "./EventInfo.vue";
-import EventDescription from "./EventDescription.vue";
-import EventTicketSidebar from "./EventTicketSidebar.vue";
-import Footer from "./Footer.vue";
+import MainLayout from "@/components/layouts/MainLayout.vue";
+import Breadcrumb from "@/components/BreadCrumb.vue";
+import EventBanner from "@/components/EventBanner.vue";
+import EventInfo from "@/components/EventInfo.vue";
+import EventDescription from "@/components/EventDescription.vue";
+import EventTicketSidebar from "@/components/EventTicketSidebar.vue";
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: "smooth" });

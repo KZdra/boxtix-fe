@@ -25,11 +25,10 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import EventCard from "./EventCard.vue";
-import type { Event } from "./types";
 
 defineProps<{
   title: string;
-  events: Event[];
+  events: any;
   backgroundColor?: string;
   titleColor?: string;
   showViewMore?: boolean;
@@ -37,19 +36,11 @@ defineProps<{
 
 const router = useRouter();
 
-const handleEventClick = (event: Event) => {
+const handleEventClick = (event: any) => {
   router.push(
     `/eventdetails/${event.title.replace(/\s+/g, "-").toLowerCase()}`
   );
 };
 </script>
 
-<style scoped>
-.event-card img {
-  transition: transform 0.3s ease-in-out;
-}
 
-.event-card:hover img {
-  transform: scale(1.1);
-}
-</style>
