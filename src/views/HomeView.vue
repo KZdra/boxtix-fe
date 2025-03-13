@@ -56,6 +56,14 @@ const recommendedEvents = [
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/3e66e81c00b5f90acb921b84aae7a61cb60df54c",
   },
+  {
+    title: "SOUND WAVE FEST 2025",
+    date: "16 May 2025",
+    location: "Batu",
+    price: "Rp.175.000",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/c1a7a664129d2700e476e6a4da1184757af52c28",
+  },
 ];
 
 const upcomingEvents = [...recommendedEvents];

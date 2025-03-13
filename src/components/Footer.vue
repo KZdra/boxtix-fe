@@ -62,7 +62,5 @@ const footerSections: FooterSection[] = [
   },
 ];
 
-const socialIcons = [
-  // Social media SVG icons here
-];
+const socialIcons = [];
 </script>

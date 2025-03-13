@@ -6,11 +6,17 @@
         <div class="px-4 py-7 w-full max-w-[1120px]">
           <Breadcrumb />
           <div class="flex gap-10 max-md:flex-col">
-            <EventBanner :banner-image="eventDetails.bannerImage" altText="Event Banner" />
+            <EventBanner
+              :banner-image="eventDetails.bannerImage"
+              altText="Event Banner"
+            />
             <EventInfo v-bind="eventDetails" />
           </div>
           <div class="flex gap-10 px-4 mt-10 max-w-[1120px] max-md:flex-col">
-            <EventDescription :description="eventDetails.description" :requirements="eventDetails.requirements" />
+            <EventDescription
+              :description="eventDetails.description"
+              :requirements="eventDetails.requirements"
+            />
             <EventTicketSidebar :starting-price="eventDetails.startingPrice" />
           </div>
         </div>
