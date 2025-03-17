@@ -3,14 +3,8 @@
     <template #default>
       <div class="w-full">
         <ImageCarousel />
-        <EventSection title="Rekomendasi Event" :events="recommendedEvents" />
-        <EventSection
-          title="Event Terdekat"
-          :events="upcomingEvents"
-          backgroundColor="bg-sky-800"
-          titleColor="text-white"
-          :showViewMore="true"
-        />
+        <RecommendedEvents :events="recommendedEvents" />
+        <UpcomingEvents :events="upcomingEvents" />
         <HowToBuySection />
       </div>
     </template>
@@ -20,6 +14,8 @@
 <script setup lang="ts">
 import MainLayout from "@/components/layouts/MainLayout.vue";
 import ImageCarousel from "@/components/ImageCarousel.vue";
+import RecommendedEvents from "@/components/RecommendedEvents.vue";
+import UpcomingEvents from "@/components/UpcomingEvents.vue";
 import EventSection from "@/components/EventSection.vue";
 import HowToBuySection from "@/components/HowToBuySection.vue";
 

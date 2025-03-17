@@ -1,7 +1,6 @@
 <template>
   <MainLayout>
     <div class="w-full bg-white min-h-[screen]">
-      <Header />
       <main class="flex flex-col items-center">
         <div class="px-4 py-7 w-full max-w-[1120px]">
           <Breadcrumb />
@@ -21,7 +20,6 @@
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   </MainLayout>
 </template>
