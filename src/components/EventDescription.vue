@@ -56,7 +56,7 @@
 
       <!-- Konten Tiket -->
       <div v-if="activeTab === 'ticket'">
-        <p class="text-lg text-neutral-600">
+        <!-- <p class="text-lg text-neutral-600"> -->
            <div class="w-[600px] max-md:w-full mx-auto">
     <div
       v-for="(ticket, index) in tickets"
@@ -85,7 +85,7 @@
           SOLD OUT
         </span>
         <div v-else class="flex items-center gap-2">
-          <button
+          <!-- <button
             class="flex items-center justify-center w-6 h-6 text-blue-500 border border-blue-500 rounded-full"
             @click="decreaseQuantity(index)"
           >
@@ -97,7 +97,12 @@
             @click="increaseQuantity(index)"
           >
             +
-          </button>
+          </button> -->
+          <button
+          class="px-4 py-2.5 text-sm text-white bg-blue-700 rounded cursor-pointer border-[none]"
+        >
+          Beli Tiket
+        </button>
         </div>
       </div>
 
@@ -106,7 +111,7 @@
       <div class="absolute top-1/2 -translate-y-1/2 right-[-10px] w-5 h-5 bg-white rounded-full border border-gray-300"></div>
     </div>
   </div>
-        </p>
+        <!-- </p> -->
       </div>
     </article>
   </div>

@@ -26,24 +26,14 @@
       class="flex flex-col items-center px-0 py-8 border-t border-solid border-t-white"
     >
       <h2 class="mb-4 text-3xl font-bold text-white">BoxTix</h2>
-      <div class="flex gap-4 mb-6">
-        <a
-          v-for="(icon, index) in socialIcons"
-          :key="index"
-          href="#"
-          class="text-white hover:text-gray-200"
-          v-html="icon"
-        ></a>
-      </div>
       <p class="text-sm text-white">Copyright © 2025</p>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import type { FooterSection } from "./types";
 
-const footerSections: FooterSection[] = [
+const footerSections: any[] = [
   {
     title: "Tentang",
     links: ["Tentang Kami", "Blogs"],
@@ -62,5 +52,4 @@ const footerSections: FooterSection[] = [
   },
 ];
 
-const socialIcons = [];
 </script>

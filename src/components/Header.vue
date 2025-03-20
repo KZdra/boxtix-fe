@@ -23,13 +23,13 @@
         <button
           class="px-4 py-2.5 text-sm text-blue-800 bg-white rounded cursor-pointer border-[none]"
         >
-          Sign Up
+          Host Your Event
         </button>
-        <button
+        <!-- <button
           class="flex items-center justify-center w-10 h-10 bg-violet-200 rounded-3xl"
         >
           <i class="text-lg text-white ti ti-search"></i>
-        </button>
+        </button> -->
       </div>
     </nav>
   </header>

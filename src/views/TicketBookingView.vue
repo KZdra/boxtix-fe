@@ -2,7 +2,7 @@
     <MainLayout>
         <main class="flex flex-col bg-white min-h-screen">
       <div
-        class="flex gap-16 px-52 py-32 max-md:flex-col max-md:px-6 max-sm:px-4 max-sm:py-16"
+        class="flex gap-10 px-52 py-32 max-md:flex-col max-md:px-6 max-sm:px-4 max-sm:py-16"
       >
         <div class="flex-1">
           <h2 class="mb-5 text-xl font-semibold text-blue-950">
@@ -37,9 +37,8 @@
   import BookingDetails from "@/components/BookingDetails.vue";
   import BookingForm from "@/components/BookingForm.vue";
   import PriceSummary from "@/components/PriceSummary.vue";
-  import type { BookingFormData, EventDetails } from "./types";
   
-  const eventDetails = ref<EventDetails>({
+  const eventDetails = ref<any>({
     title: "Cendana Air Festival 2025",
     date: "04 May 2025 - 04 May 2025",
     time: "06:00 - 12:00 WIB",
@@ -49,7 +48,7 @@
     price: 399000,
   });
   
-  const handleFormSubmit = (formData: BookingFormData) => {
+  const handleFormSubmit = (formData: any) => {
     console.log("Form submitted:", formData);
   };
   

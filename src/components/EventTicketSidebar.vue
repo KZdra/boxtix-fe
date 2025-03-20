@@ -33,7 +33,7 @@
         <button
           class="py-1.5 w-full text-base tracking-widest text-white bg-blue-700 rounded-lg"
         >
-          Beli Tiket
+          Pilih Ticket
         </button>
       </div>
     </div>

@@ -2,15 +2,28 @@
     <form @submit.prevent="handleSubmit" class="flex flex-col gap-5">
       <div class="flex flex-col gap-2">
         <label class="text-sm text-neutral-600">
-          Nama Lengkap<span class="text-rose-500">*</span>
+          Nama Depan<span class="text-rose-500">*</span>
         </label>
         <p class="text-sm text-neutral-400">
           Gunakan nama yang tertera di KTP/Paspor.
         </p>
         <input
-          v-model="formData.fullName"
+          v-model="formData.firstName"
           type="text"
           required
+          placeholder="Contoh: John"
+          class="px-4 w-full rounded-lg border-gray-200 border-[0.8px] h-[49px]"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="text-sm text-neutral-600">
+          Nama Belakang<span class="text-rose-500">*</span>
+        </label>
+        <input
+          v-model="formData.lastName"
+          type="text"
+          required
+          placeholder="Contoh: Doe"
           class="px-4 w-full rounded-lg border-gray-200 border-[0.8px] h-[49px]"
         />
       </div>
@@ -20,17 +33,13 @@
           Nomor Ponsel<span class="text-rose-500">*</span>
         </label>
         <p class="text-sm text-neutral-400">Masukkan nomor ponsel aktif</p>
-        <div class="flex">
-          <div
-            class="px-4 bg-white rounded-lg border-gray-200 border-[0.8px] h-[49px] w-[117px] flex items-center"
-          >
-            🇮🇩 +62
-          </div>
+        <div>
           <input
             v-model="formData.phoneNumber"
             type="tel"
             required
-            class="flex-1 px-4 rounded-lg border-gray-200 border-[0.8px] h-[49px]"
+            placeholder="Contoh: 628982xxxx"
+            class=" px-4 rounded-lg border-gray-200 border-[0.8px] h-[49px] w-full"
           />
         </div>
       </div>
@@ -46,36 +55,9 @@
           v-model="formData.email"
           type="email"
           required
+          placeholder="Contoh: example@mail.com"
           class="px-4 w-full rounded-lg border-gray-200 border-[0.8px] h-[49px]"
         />
-      </div>
-  
-      <div class="flex flex-col gap-2">
-        <label class="text-sm text-neutral-600">
-          Tanggal Lahir<span class="text-rose-500">*</span>
-        </label>
-        <input
-          v-model="formData.birthDate"
-          type="date"
-          required
-          placeholder="yyyy/mm/dd"
-          class="px-4 w-full rounded-lg border-gray-200 border-[0.8px] h-[49px]"
-        />
-      </div>
-  
-      <div class="flex flex-col gap-2">
-        <label class="text-sm text-neutral-600">
-          Jenis Kelamin<span class="text-rose-500">*</span>
-        </label>
-        <select
-          v-model="formData.gender"
-          required
-          class="px-4 w-full bg-white rounded-lg border-gray-200 border-[0.8px] h-[49px]"
-        >
-          <option value="">Pilih Jenis Kelamin</option>
-          <option value="male">Laki-laki</option>
-          <option value="female">Perempuan</option>
-        </select>
       </div>
   
       <div class="flex gap-2.5 items-center p-4 mt-5 bg-yellow-50 rounded-lg">
@@ -98,18 +80,15 @@
   
   <script setup lang="ts">
   import { ref } from "vue";
-  import type { BookingFormData } from "./types";
   
-  const formData = ref<BookingFormData>({
+  const formData = ref<any>({
     fullName: "",
     phoneNumber: "",
     email: "",
-    birthDate: "",
-    gender: "",
   });
   
   const emit = defineEmits<{
-    (e: "submit", data: BookingFormData): void;
+    (e: "submit", data: any): void;
   }>();
   
   const handleSubmit = () => {

@@ -11,7 +11,7 @@
             {{ props.event.title }}
           </h2>
   
-          <div class="flex gap-2.5 items-center mt-2.5">
+          <!-- <div class="flex gap-2.5 items-center mt-2.5">
             <svg
               width="24"
               height="24"
@@ -43,7 +43,7 @@
             <span class="text-base text-neutral-900">{{
               props.event.location
             }}</span>
-          </div>
+          </div> -->
         </div>
       </div>
   
@@ -59,12 +59,9 @@
     </section>
   </template>
   
-  <script setup lang="ts">
-  import { defineProps } from "vue";
-  import type { EventDetails } from "./types";
-  
+  <script setup lang="ts">  
   const props = defineProps<{
-    event: EventDetails;
+    event: any;
   }>();
   </script>
   

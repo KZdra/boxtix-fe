@@ -57,7 +57,8 @@
   
       <button
         @click="handlePayment"
-        class="mt-5 w-full text-base font-medium text-white bg-blue-700 rounded-lg h-[55px]"
+        class="mt-5 w-full text-base font-medium text-white  rounded-lg h-[55px] transition"
+        :class="{'bg-gray-500 opacity-50 cursor-not-allowed': !canProceed, 'bg-blue-700': canProceed}"
         :disabled="!canProceed"
       >
         Bayar Tiket
