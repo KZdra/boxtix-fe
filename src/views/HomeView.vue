@@ -3,14 +3,8 @@
     <template #default>
       <div class="w-full">
         <ImageCarousel />
-        <EventSection title="Rekomendasi Event" :events="recommendedEvents" />
-        <EventSection
-          title="Event Terdekat"
-          :events="upcomingEvents"
-          backgroundColor="bg-sky-800"
-          titleColor="text-white"
-          :showViewMore="true"
-        />
+        <RecommendedEvents :events="recommendedEvents" />
+        <UpcomingEvents :events="upcomingEvents" />
         <HowToBuySection />
       </div>
     </template>
@@ -20,6 +14,8 @@
 <script setup lang="ts">
 import MainLayout from "@/components/layouts/MainLayout.vue";
 import ImageCarousel from "@/components/ImageCarousel.vue";
+import RecommendedEvents from "@/components/RecommendedEvents.vue";
+import UpcomingEvents from "@/components/UpcomingEvents.vue";
 import EventSection from "@/components/EventSection.vue";
 import HowToBuySection from "@/components/HowToBuySection.vue";
 
@@ -55,6 +51,14 @@ const recommendedEvents = [
     price: "Rp.65.000",
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/3e66e81c00b5f90acb921b84aae7a61cb60df54c",
+  },
+  {
+    title: "SOUND WAVE FEST 2025",
+    date: "16 May 2025",
+    location: "Batu",
+    price: "Rp.175.000",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/c1a7a664129d2700e476e6a4da1184757af52c28",
   },
 ];
 
