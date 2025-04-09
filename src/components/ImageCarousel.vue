@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden relative w-full h-[500px]">
+  <div class="overflow-hidden relative w-full h-[500px] p-3">
     <Swiper
       :slidesPerView="1"
       :spaceBetween="30"
@@ -12,7 +12,7 @@
         clickable: true
       }"
       :modules="[Autoplay, Pagination]"
-      class="mySwiper w-full h-full"
+      class="mySwiper w-full h-full  rounded-lg"
     >
       <SwiperSlide v-for="(image, index) in images" :key="index">
         <img
@@ -28,7 +28,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/autoplay";
