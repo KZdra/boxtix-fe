@@ -26,6 +26,7 @@
             <EventTicketSidebar
               :starting-price="DetailStore.startingPrice"
               :cartlist="cart"
+              :payload="payLoad"
               v-model:name="userC.first_name"
               v-model:name2="userC.last_name"
               v-model:email="userC.email"
@@ -68,7 +69,9 @@ const userC = ref({
   email: "",
   phone: "",
 });
+const payLoad =ref(false)
 const pay = async () => {
+  payLoad.value = true
   const body = {
     first_name: userC.value.first_name,
     last_name: userC.value.last_name,
@@ -90,18 +93,25 @@ const pay = async () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      payLoad.value = false
       setTimeout(()=>{
-        (window as any).reload()
+        (window as any).location.reload()
       },2000)
     },
     onPending: (result: any) => {
       console.log("Pending", result);
+      payLoad.value = false
+
     },
     onError: (result: any) => {
       console.error("Error", result);
+      payLoad.value = false
+
     },
     onClose: () => {
       console.log("Popup ditutup");
+      payLoad.value = false
+
     },
   });
 };

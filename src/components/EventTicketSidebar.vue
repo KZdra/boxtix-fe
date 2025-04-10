@@ -45,9 +45,9 @@
           v-if="cartlist.length === 0"
         >
           <span class="text-base text-neutral-600">Harga mulai dari</span>
-          <span class="text-lg font-medium text-neutral-900"
-            >{{ formatRupiah(startingPrice) }}</span
-          >
+          <span class="text-lg font-medium text-neutral-900">{{
+            formatRupiah(startingPrice)
+          }}</span>
         </div>
         <div v-if="cartlist?.length > 0" class="space-y-3">
           <h3>Lengkapi Data Diri!</h3>
@@ -81,6 +81,7 @@
           />
 
           <button
+            v-loading="payload"
             class="py-2 w-full text-base tracking-widest text-white bg-blue-700 hover:bg-blue-800 rounded-lg transition"
             @click="order"
           >
@@ -95,8 +96,9 @@
 defineProps<{
   startingPrice: number;
   cartlist?: any;
+  payload?: boolean;
 }>();
-import { formatRupiah } from '@/utils/format';
+import { formatRupiah } from "@/utils/format";
 const e = defineEmits(["clearcart", "submitOrder"]);
 const phone = defineModel("phone");
 const name = defineModel("name");
