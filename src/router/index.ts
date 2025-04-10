@@ -9,7 +9,7 @@ const router = createRouter({
       component: () => import("@/views/HomeView.vue"),
     },
     {
-      path: "/eventdetails/:title",
+      path: "/event/:slug",
       name: "eventdetailsview",
       component: () => import("@/views/EventDetailsView.vue"),
       props: true,

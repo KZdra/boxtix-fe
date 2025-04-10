@@ -2,7 +2,7 @@
   <aside class="w-[360px] max-md:w-full">
     <div class="p-6 bg-white rounded-lg shadow-sm mb-7">
       <div class="pb-6 mb-6 border-b border-zinc-200">
-        <div class="flex items-start gap-6">
+        <div class="flex items-start gap-6" v-if="cartlist.length === 0">
           <svg
             width="41"
             height="41"
@@ -22,28 +22,90 @@
             TIKET.
           </p>
         </div>
+        <div class="space-y-4 mt-2" v-if="cartlist?.length > 0">
+          <h2 class="text-xl font-semibold">Tiket yang Dipilih</h2>
+          <ul class="space-y-2">
+            <li
+              v-for="(item, index) in cartlist"
+              :key="index"
+              class="p-3 bg-gray-100 rounded-md shadow-sm flex justify-between items-center"
+            >
+              <span class="font-medium">{{ item.ticket_name }}</span>
+              <span class="font-medium">{{ formatRupiah(item.price) }}</span>
+              <button @click="clear(index)" class="text-red-500 text-sm">
+                Hapus
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="flex flex-col gap-2.5">
-        <div class="flex items-center justify-between">
-          <span class="text-base text-neutral-600">Harga mulai dari</span>
-          <span class="text-lg font-medium text-neutral-900">{{
-            startingPrice
-          }}</span>
-        </div>
-        <button
-          class="py-1.5 w-full text-base tracking-widest text-white bg-blue-700 rounded-lg"
+        <div
+          class="flex items-center justify-between"
+          v-if="cartlist.length === 0"
         >
-          Pilih Ticket
-        </button>
+          <span class="text-base text-neutral-600">Harga mulai dari</span>
+          <span class="text-lg font-medium text-neutral-900"
+            >{{ formatRupiah(startingPrice) }}</span
+          >
+        </div>
+        <div v-if="cartlist?.length > 0" class="space-y-3">
+          <h3>Lengkapi Data Diri!</h3>
+          <input
+            type="text"
+            v-model="name"
+            placeholder="Nama Depan"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="text"
+            v-model="name2"
+            placeholder="Nama Belakang"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="email"
+            v-model="email"
+            placeholder="Email"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="tel"
+            v-model="phone"
+            placeholder="Nomor Telepon"
+            required
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <button
+            class="py-2 w-full text-base tracking-widest text-white bg-blue-700 hover:bg-blue-800 rounded-lg transition"
+            @click="order"
+          >
+            Bayar!
+          </button>
+        </div>
       </div>
     </div>
-    <SocialShare />
   </aside>
 </template>
 <script setup lang="ts">
-import SocialShare from "./SocialShare.vue";
-
 defineProps<{
-  startingPrice: string;
+  startingPrice: number;
+  cartlist?: any;
 }>();
+import { formatRupiah } from '@/utils/format';
+const e = defineEmits(["clearcart", "submitOrder"]);
+const phone = defineModel("phone");
+const name = defineModel("name");
+const name2 = defineModel("name2");
+const email = defineModel("email");
+const clear = (i: number) => {
+  e("clearcart", i);
+};
+const order = () => {
+  e("submitOrder");
+};
 </script>

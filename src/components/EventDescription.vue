@@ -30,12 +30,8 @@
     <article class="mt-10">
       <!-- Konten Deskripsi -->
       <div v-if="activeTab === 'description'">
-        <div
-          v-for="(paragraph, index) in description"
-          :key="index"
-          class="mb-5 text-base text-neutral-600"
-        >
-          {{ paragraph }}
+        <div class="mb-5 text-base text-neutral-600">
+          {{ description }}
         </div>
 
         <div class="flex items-center gap-2 mb-5">
@@ -44,12 +40,39 @@
         </div>
 
         <ul class="text-base text-neutral-600">
-          <li
+          <!-- <li
             v-for="(requirement, index) in requirements"
             :key="index"
             class="mb-5 last:mb-0"
           >
             {{ requirement }}
+          </li> -->
+          <li>
+            Entry Pass yang valid adalah yang dibeli melalui BoxTix.co.id.
+          </li>
+          <li>Satu Entry Pass berlaku untuk satu orang.</li>
+          <li>
+            Panitia dan Promotor tidak bertanggung jawab/tidak ada penggantian
+            kerugian atas pembelian tiket acara melalui
+            calo/tempat/kanal/platform yang bukan mitra resmi penjualan tiket
+            "Subculture Agression".
+          </li>
+          <li>
+            Tiket yang hilang/dicuri tidak akan diganti atau diterbitkan ulang,
+            meskipun Anda memiliki bukti pembelian. Tiket merupakan tanggung
+            jawab masing-masing pemilik.
+          </li>
+          <li>
+            Saya telah membaca dan memahami syarat dan ketentuan pembelian dan
+            penggunaan Entry Pass di atas.
+          </li>
+          <li>
+            Jika ada perubahan aturan promotor, akan segera diinformasikan
+            melalui akun media sosial resmi promotor.
+          </li>
+          <li>
+            Saya memberikan persetujuan untuk diikat secara hukum dengan syarat
+            dan ketentuan tersebut.
           </li>
         </ul>
       </div>
@@ -57,60 +80,57 @@
       <!-- Konten Tiket -->
       <div v-if="activeTab === 'ticket'">
         <!-- <p class="text-lg text-neutral-600"> -->
-           <div class="w-[600px] max-md:w-full mx-auto">
-    <div
-      v-for="(ticket, index) in tickets"
-      :key="index"
-      class="relative p-5 mb-4 bg-white border border-gray-200 rounded-lg shadow-md"
-    >
-      <!-- Nama Ticket -->
-      <h2 class="text-lg font-semibold text-gray-900">
-        {{ ticket.name }}
-      </h2>
-
-      <!-- Detail Kelas -->
-      <p class="text-sm text-gray-500">Kelas: {{ ticket.class }}</p>
-
-      <!-- Tanggal Berakhir -->
-      <p class="mt-1 text-sm text-blue-600">
-        Berakhir {{ ticket.endDate }} {{ ticket.endTime }}
-      </p>
-
-      <!-- Harga & Status -->
-      <div class="flex items-center justify-between mt-3">
-        <p class="text-lg font-bold text-gray-900">
-          {{ ticket.price }}
-        </p>
-        <span v-if="ticket.soldOut" class="font-semibold text-red-500">
-          SOLD OUT
-        </span>
-        <div v-else class="flex items-center gap-2">
-          <!-- <button
-            class="flex items-center justify-center w-6 h-6 text-blue-500 border border-blue-500 rounded-full"
-            @click="decreaseQuantity(index)"
+        <div class="w-[600px] max-md:w-full mx-auto">
+          <div
+            v-for="(ticket, idx) in tickets"
+            :key="ticket.id"
+            class="relative p-5 mb-4 bg-white border border-gray-200 rounded-lg shadow-md"
           >
-            −
-          </button>
-          <span class="font-medium text-gray-900">{{ ticket.quantity }}</span>
-          <button
-            class="flex items-center justify-center w-6 h-6 text-blue-500 border border-blue-500 rounded-full"
-            @click="increaseQuantity(index)"
-          >
-            +
-          </button> -->
-          <button
-          class="px-4 py-2.5 text-sm text-white bg-blue-700 rounded cursor-pointer border-[none]"
-        >
-          Beli Tiket
-        </button>
+            <!-- Nama Ticket -->
+            <h2 class="text-lg font-semibold text-gray-900">
+              {{ ticket.ticket_name }}
+            </h2>
+            <h2 class="text-sm font-semibold text-gray-500">
+              Stok Tersedia: {{ ticket.stock }}
+            </h2>
+
+            <!-- Harga & Status -->
+            <div class="flex items-center justify-between mt-3">
+              <p class="text-lg font-bold text-gray-900">
+                {{ formatRupiah(ticket.price) }}
+              </p>
+              <span
+                v-if="ticket.status == 'sold_out'"
+                class="font-semibold text-red-500"
+              >
+                SOLD OUT
+              </span>
+              <span
+                v-if="ticket.status == 'comingsoon'"
+                class="font-semibold text-gray-500"
+              >
+                Coming Soon!
+              </span>
+              <div v-else class="flex items-center gap-2">
+                <button
+                  class="px-4 py-2.5 text-sm text-white bg-blue-700 rounded cursor-pointer border-[none] disabled:opacity-50 disabled:cursor-not-allowed"
+                  @click="handleClick(idx)"
+                  :disabled="isPresent"
+                >
+                  Beli Tiket
+                </button>
+              </div>
+            </div>
+
+            <!-- Handle Tombol Samping -->
+            <div
+              class="absolute top-1/2 -translate-y-1/2 left-[-10px] w-5 h-5 bg-white rounded-full border border-gray-300"
+            ></div>
+            <div
+              class="absolute top-1/2 -translate-y-1/2 right-[-10px] w-5 h-5 bg-white rounded-full border border-gray-300"
+            ></div>
+          </div>
         </div>
-      </div>
-
-      <!-- Handle Tombol Samping -->
-      <div class="absolute top-1/2 -translate-y-1/2 left-[-10px] w-5 h-5 bg-white rounded-full border border-gray-300"></div>
-      <div class="absolute top-1/2 -translate-y-1/2 right-[-10px] w-5 h-5 bg-white rounded-full border border-gray-300"></div>
-    </div>
-  </div>
         <!-- </p> -->
       </div>
     </article>
@@ -119,42 +139,15 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-
+import { formatRupiah } from "@/utils/format";
 defineProps<{
-  description: string[];
-  requirements: string[];
+  description?: string;
+  tickets?: any[];
+  isPresent?: boolean;
 }>();
-
+const emit = defineEmits(["handleBuy"]);
 const activeTab = ref<"description" | "ticket">("description");
-
-const tickets = ref([
-  {
-    name: "EARLY BIRD TICKET",
-    class: "3 - 14 Mar 2025...",
-    endDate: "23 Feb 2025",
-    endTime: "23:00 WIB",
-    price: "Rp399.000",
-    soldOut: true,
-    quantity: 0,
-  },
-  {
-    name: "PRESALE 1",
-    class: "3 - 14 Mar 2025...",
-    endDate: "28 Feb 2025",
-    endTime: "23:00 WIB",
-    price: "Rp500.000",
-    soldOut: false,
-    quantity: 0,
-  },
-]);
-
-const increaseQuantity = (index: number) => {
-  tickets.value[index].quantity++;
-};
-
-const decreaseQuantity = (index: number) => {
-  if (tickets.value[index].quantity > 0) {
-    tickets.value[index].quantity--;
-  }
+const handleClick = (idx: number) => {
+  emit("handleBuy", idx); // contoh data
 };
 </script>

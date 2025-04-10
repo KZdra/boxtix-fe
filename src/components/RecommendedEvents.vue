@@ -34,7 +34,7 @@
   
   const router = useRouter();
   const handleEventClick = (event: any) => {
-    router.push(`/eventdetails/${event.title.replace(/\s+/g, "-").toLowerCase()}`);
+    router.push(`/event/${event.title.replace(/\s+/g, "-").toLowerCase()}`);
   };
   </script>
   

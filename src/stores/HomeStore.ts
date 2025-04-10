@@ -1,7 +1,7 @@
 import { ref, computed, reactive } from "vue";
 import { defineStore } from "pinia";
 
-export const useHomeStore = defineStore("HomeStore", () => {
+export const useHomeStore = defineStore("homeStore", () => {
   const recommendedEvent = reactive([
     {
       title: "Deliwafa Fest Vol.5 | Ramadhan",

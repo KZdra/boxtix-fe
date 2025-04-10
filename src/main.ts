@@ -1,17 +1,23 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import '@fortawesome/fontawesome-free/css/all.css';
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import "@fortawesome/fontawesome-free/css/all.css";
 
+import App from "./App.vue";
+import router from "./router";
+import "./assets/main.css";
+import "toastify-js/src/toastify.css";
+import dayjs from "dayjs";
+import "dayjs/locale/id";
+dayjs.locale("id");
 
-import App from './App.vue'
-import router from './router'
-import './assets/main.css'
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
+const app = createApp(App);
 
-const app = createApp(App)
+app.use(createPinia());
+app.use(ElementPlus);
+app.use(router);
 
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+app.mount("#app");
