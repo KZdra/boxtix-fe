@@ -85,7 +85,7 @@
             class="py-2 w-full text-base tracking-widest text-white bg-blue-700 hover:bg-blue-800 rounded-lg transition"
             @click="order"
           >
-            Bayar!
+          {{ payload ? "LOADING..." : "Bayar!" }}
           </button>
         </div>
       </div>

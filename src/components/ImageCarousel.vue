@@ -1,24 +1,24 @@
 <template>
-  <div class="overflow-hidden relative w-full h-[500px] p-3">
+  <div class="overflow-hidden relative w-full h-[500px] p-2">
     <Swiper
       :slidesPerView="1"
       :spaceBetween="30"
       :loop="true"
-      :autoplay="{
-        delay: 3000,
-        disableOnInteraction: false
-      }"
+     :autoplay="{
+      delay:3000,
+      disableOnInteraction:false
+     }"
       :pagination="{
         clickable: true
       }"
-      :modules="[Autoplay, Pagination]"
-      class="mySwiper w-full h-full  rounded-lg"
+      :modules="[Autoplay,Pagination]"
+      class="mySwiper w-full h-full rounded-lg"
     >
       <SwiperSlide v-for="(image, index) in images" :key="index">
         <img
           :src="image.url"
           :alt="image.altText"
-          class="object-cover w-full h-full"
+          class="object-contain w-full h-full"
         />
       </SwiperSlide>
     </Swiper>
@@ -47,6 +47,10 @@ const images = [
     url: "https://cdn.builder.io/api/v1/image/assets/TEMP/509716078482ddaa6379d1367185b159ccccbf6b",
     altText: "Carousel Image 3",
   },
+  {
+    url: "/1.jpg",
+    altText: "Carousel"
+  }
 ];
 </script>
 

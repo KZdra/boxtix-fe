@@ -1,44 +1,46 @@
 <template>
-    <section class="py-10 px-40 max-md:px-5">
-      <h2 class="mb-6 text-lg font-semibold">Rekomendasi Event</h2>
-      
-      <Swiper
-        :modules="[Navigation, Pagination, Autoplay]"
-        :slides-per-view="4"
-        :space-between="20"
-        :loop="true"
-        :navigation="true"
-        :pagination="{ clickable: true }"
-        :autoplay="{ delay: 3000 }"
-        class="w-full event-swiper"
-      >
-        <SwiperSlide v-for="event in events" :key="event.title">
-          <div class="event-card">
-            <EventCard :event="event" @click="handleEventClick(event)" />
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </section>
-  </template>
-  
-  <script setup lang="ts">
-  import { useRouter } from "vue-router";
-  import { Swiper, SwiperSlide } from "swiper/vue";
-  import { Navigation, Pagination, Autoplay } from "swiper/modules";
-  import "swiper/css";
-  import "swiper/css/navigation";
-  import "swiper/css/pagination";
-  import EventCard from "./EventCard.vue";
-  
-  defineProps<{ events: any[] }>();
-  
-  const router = useRouter();
-  const handleEventClick = (event: any) => {
-    router.push(`/event/${event.title.replace(/\s+/g, "-").toLowerCase()}`);
+  <section class="py-10 px-40 max-md:px-5">
+    <h2 class="mb-6 text-lg font-semibold">Rekomendasi Event</h2>
+
+    <Swiper
+      :modules="[Navigation, Pagination, Autoplay]"
+      :slides-per-view="4"
+      :space-between="20"
+      :loop="events.length < 4 ? false : true"
+      :navigation="events.length < 4 ? false : true"
+      :pagination="
+        events.length < 4 ? { clickable: false } : { clickable: true }
+      "
+      :autoplay="events.length < 4 ? false : { delay: 3000 }"
+      class="w-full event-swiper"
+    >
+      <SwiperSlide v-for="event in events" :key="event.id">
+        <div class="event-card">
+          <EventCard :event="event" @click="handleEventClick(event.slug)" />
+        </div>
+      </SwiperSlide>
+    </Swiper>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { useRouter } from "vue-router";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import EventCard from "./EventCard.vue";
+
+defineProps<{ events: any[] }>();
+
+const router = useRouter();
+const handleEventClick = (event: any) => {
+    router.push(`/event/${event.toLowerCase()}`);
   };
-  </script>
-  
-  <style scoped>
+</script>
+
+<style scoped>
 /* Gaya keseluruhan */
 .event-swiper {
   padding-bottom: 40px; /* Agar pagination tidak terlalu mepet */
@@ -91,4 +93,3 @@
   height: 14px;
 }
 </style>
-  

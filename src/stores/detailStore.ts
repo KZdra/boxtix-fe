@@ -29,39 +29,6 @@ interface Ticket {
 export const useDetailStore = defineStore("detailStore", () => {
   const eventDetails = ref<EventDetail|any>(null);
   const tickets = ref<Ticket[] | []>([
-    {
-      id: 3,
-      event_id: 1,
-      event_name: "Event World",
-      id_category: 3,
-      ticket_name: "Presale 3",
-      code: "EVE-",
-      status: "comingsoon",
-      price: "40000.00",
-      stock: 10,
-    },
-    {
-      id: 2,
-      event_id: 1,
-      event_name: "Event World",
-      id_category: 2,
-      ticket_name: "Presale 2",
-      code: "EVE-",
-      status: "on_sale",
-      price: "20000.00",
-      stock: 10,
-    },
-    {
-      id: 1,
-      event_id: 1,
-      event_name: "Event World",
-      id_category: 1,
-      ticket_name: "Presale 1",
-      code: "EVE-",
-      status: "on_sale",
-      price: "30000.00",
-      stock: 10,
-    },
   ]);
   const fetchDetailData = async (slug: string | string[]) => {
     try {
@@ -71,9 +38,10 @@ export const useDetailStore = defineStore("detailStore", () => {
   
       // Pastikan eventDetails udah ada dan punya event_id
       if (eventDetails.value && eventDetails.value.id) {
-        const r2 = await apiService.apiGet("/api/ticket/own", {
-          event_id: eventDetails.value.event_id,
-        });  
+        const r2 = await apiService.apiGet("/api/ticket/own",{
+          event_id: eventDetails.value.id
+        }
+        );  
         tickets.value = r2.data.data;
       } else {
         console.warn("Event ID not found in eventDetails");

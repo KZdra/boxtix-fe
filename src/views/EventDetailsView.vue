@@ -89,7 +89,7 @@ const pay = async () => {
     onSuccess: (result: any) => {
       Swal.fire({
         icon: "success",
-        title: "Pembayaran Berhasil! Silahkan Check Whatsapp Anda!",
+        title: "Pembayaran Berhasil! Silahkan Check E-Mail Anda!",
         showConfirmButton: false,
         timer: 1500,
       });

@@ -6,10 +6,10 @@
         :modules="[Navigation, Pagination, Autoplay]"
         :slides-per-view="4"
         :space-between="20"
-        :loop="true"
-        :navigation="true"
-        :pagination="{ clickable: true }"
-        :autoplay="{ delay: 3000 }"
+       :loop="events.length < 4 ? false : true"
+        :navigation="events.length < 4 ? false : true"
+        :pagination="events.length < 4 ? { clickable: false } : { clickable: true }"
+        :autoplay="events.length < 4 ? false : { delay: 3000 }"
         class="w-full event-swiper"
       >
         <SwiperSlide v-for="event in events" :key="event.title">
@@ -34,7 +34,7 @@
   
   const router = useRouter();
   const handleEventClick = (event: any) => {
-    router.push(`/eventdetails/${event.title.replace(/\s+/g, "-").toLowerCase()}`);
+    router.push(`/event/${event.slug.toLowerCase()}`);
   };
   </script>
   

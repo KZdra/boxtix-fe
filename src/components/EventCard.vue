@@ -4,7 +4,7 @@
     @click="$emit('click')"
   >
     <img
-      :src="event.imageUrl"
+      :src="event.banner_url"
       :alt="event.title"
       class="object-cover w-full h-[134px]"
     />
@@ -15,12 +15,12 @@
       >
         {{ event.title }}
       </h3>
-      <p class="mb-4 text-sm text-neutral-400">{{ event.date }}</p>
-      <p class="mb-4 text-sm text-neutral-400">{{ event.location }}</p>
+      <p class="mb-4 text-sm text-neutral-400">📅&nbsp;{{ formatDate(event.start_date) }}</p>
+      <p class="mb-4 text-sm text-neutral-400">📍&nbsp;{{ event.location }}</p>
       <p
         class="pt-4 text-base font-semibold text-black border-t border-solid border-t-blue-100"
       >
-        {{ event.price }}
+        {{ formatRupiah(event.price) }}
       </p>
     </div>
   </article>
@@ -31,6 +31,6 @@
 defineProps<{
   event: any;
 }>();
-
+import { formatRupiah,formatDate } from '@/utils/format';
 defineEmits(["click"]);
 </script>
