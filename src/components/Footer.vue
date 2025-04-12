@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="px-40 pt-16 pb-0 bg-sky-800 max-md:px-5 max-md:pt-16 max-md:pb-0"
+    class="px-40 pt-16 pb-0 bg-boxblue max-md:px-5 max-md:pt-16 max-md:pb-0"
   >
     <div
       class="grid gap-8 mb-8 grid-cols-[repeat(4,1fr)] max-md:grid-cols-[repeat(2,1fr)] max-sm:grid-cols-[1fr]"
@@ -25,7 +25,7 @@
     <div
       class="flex flex-col items-center px-0 py-8 border-t border-solid border-t-white"
     >
-      <h2 class="mb-4 text-3xl font-bold text-white">BoxTix</h2>
+      <h2 class="mb-4 text-3xl font-bold text-white"><img src="/logo-white.png" class="h-10"></h2>
       <p class="text-sm text-white">Copyright © 2025</p>
     </div>
   </footer>
