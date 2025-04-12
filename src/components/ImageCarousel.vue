@@ -1,8 +1,9 @@
 <template>
   <div class="overflow-hidden relative w-full h-[500px] p-2">
     <Swiper
-      :slidesPerView="1"
-      :spaceBetween="30"
+      :slidesPerView="1.2"
+      :centeredSlides="true"
+      :spaceBetween="15"
       :loop="true"
      :autoplay="{
       delay:3000,
@@ -12,7 +13,7 @@
         clickable: true
       }"
       :modules="[Autoplay,Pagination]"
-      class="mySwiper w-full h-full rounded-lg"
+      class="mySwiper w-full h-full "
     >
       <SwiperSlide v-for="(image, index) in images" :key="index">
         <img

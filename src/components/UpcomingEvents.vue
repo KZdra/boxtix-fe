@@ -1,5 +1,5 @@
 <template>
-    <section class="py-10 px-40 max-md:px-5 bg-sky-800">
+    <section class="py-10 px-40 max-md:px-5 bg-boxblue">
       <h2 class="mb-6 text-lg font-semibold text-white">Event Terdekat</h2>
       
       <Swiper
