@@ -37,20 +37,20 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 const images = [
   {
-    url: "https://cdn.builder.io/api/v1/image/assets/TEMP/9be298ce42280d9f08fe5738ce7fe3d187ebbbff",
+    url: "/carousel/1.png",
     altText: "Carousel Image 1",
   },
   {
-    url: "https://cdn.builder.io/api/v1/image/assets/TEMP/090ba78ff7f0c35bfb848371151a4984fba54d87",
+    url: "/carousel/2.png",
     altText: "Carousel Image 2",
   },
   {
-    url: "https://cdn.builder.io/api/v1/image/assets/TEMP/509716078482ddaa6379d1367185b159ccccbf6b",
+    url: "/carousel/3.png",
     altText: "Carousel Image 3",
   },
   {
-    url: "/1.jpg",
-    altText: "Carousel"
+    url: "/carousel/4.png",
+    altText: "Carousel Image 4"
   }
 ];
 </script>

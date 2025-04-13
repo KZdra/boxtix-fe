@@ -72,14 +72,6 @@
             required
             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <input
-            type="tel"
-            v-model="phone"
-            placeholder="Nomor Telepon"
-            required
-            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
           <button
             v-loading="payload"
             class="py-2 w-full text-base tracking-widest text-white bg-blue-700 hover:bg-blue-800 rounded-lg transition"
