@@ -1,4 +1,4 @@
-import { reactive, ref, computed } from "vue";
+import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import { apiService } from "@/utils/apiService";
 
@@ -14,6 +14,8 @@ interface EventDetail {
   slug: string;
   event_organizer: string;
   banner_url: string;
+  picture_profile_name:string|null;
+  picture_profile_url?:string;
 }
 interface Ticket {
   id: number;
@@ -35,7 +37,6 @@ export const useDetailStore = defineStore("detailStore", () => {
       // Fetch event details
       const response = await apiService.apiGet(`/api/event/${slug}`);
       eventDetails.value = response.data.data;
-  
       // Pastikan eventDetails udah ada dan punya event_id
       if (eventDetails.value && eventDetails.value.id) {
         const r2 = await apiService.apiGet("/api/ticket/own",{
@@ -53,7 +54,6 @@ export const useDetailStore = defineStore("detailStore", () => {
   
   const startingPrice = computed(() => {
     const prices = tickets.value
-      .filter((t) => t.status === "on_sale")
       .map((t) => parseFloat(t.price));
     return Math.min(...prices);
   });

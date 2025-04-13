@@ -12,8 +12,8 @@
               :date="formatDate(event.start_date)"
               :title="event.title"
               :location="event.location"
-              :organizer-image="event.banner_url"
-              :organizer-name="event.event_organizer"
+              :organizer-image="event.picture_profile_url ?? event.banner_url"
+              :organizer-name ="event.event_organizer"
             />
           </div>
           <div class="flex gap-10 px-4 mt-10 max-w-[1120px] max-md:flex-col">
@@ -30,7 +30,6 @@
               v-model:name="userC.first_name"
               v-model:name2="userC.last_name"
               v-model:email="userC.email"
-              v-model:phone="userC.phone"
               @submit-order="pay"
               @clearcart="clearCart"
             />
@@ -67,7 +66,6 @@ const userC = ref({
   first_name: "",
   last_name: "",
   email: "",
-  phone: "",
 });
 const payLoad =ref(false)
 const pay = async () => {
@@ -76,7 +74,6 @@ const pay = async () => {
     first_name: userC.value.first_name,
     last_name: userC.value.last_name,
     email: userC.value.email,
-    phone: userC.value.phone,
     event_id: event.value.id,
     ticket_id: cart.value[0].id,
     category_id: cart.value[0].id_category,

@@ -14,12 +14,18 @@ const router = createRouter({
       component: () => import("@/views/EventDetailsView.vue"),
       props: true,
     },
-    // {
-    //   path: "/ticketboking",
-    //   name: "ticketbokingview",
-    //   component: () => import("@/views/TicketBookingView.vue"),
-    //   props: true,
-    // },
+    {
+      path: "/eventcreator",
+      name: "eventcreatorview",
+      component: () => import("@/views/EventCreatorView.vue"),
+      props: true,
+    },
+    {
+      path: "/hubungikami",
+      name: "hubungikamiview",
+      component: () => import("@/views/HubungiKamiView.vue"),
+      props: true,
+    },
   ],
 });
 

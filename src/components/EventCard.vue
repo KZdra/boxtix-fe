@@ -6,7 +6,7 @@
     <img
       :src="event.banner_url"
       :alt="event.title"
-      class="object-cover w-full h-[134px]"
+      class="object-cover w-full h-[135px]"
     />
     <div class="p-5">
       <h3

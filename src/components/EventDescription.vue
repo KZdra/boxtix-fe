@@ -106,7 +106,7 @@
                 SOLD OUT
               </span>
               <span
-                v-if="ticket.status == 'comingsoon'"
+                v-else-if="ticket.status == 'comingsoon'"
                 class="font-semibold text-gray-500"
               >
                 Coming Soon!
