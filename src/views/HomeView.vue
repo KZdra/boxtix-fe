@@ -2,7 +2,7 @@
   <MainLayout>
     <template #default>
       <div class="w-full">
-        <div class="px-3 rounded">
+        <div class="px-3">
           <ImageCarousel />
         </div>
         <RecommendedEvents :events="recommendedEvents" v-loading="load" />
