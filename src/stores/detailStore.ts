@@ -14,8 +14,8 @@ interface EventDetail {
   slug: string;
   event_organizer: string;
   banner_url: string;
-  picture_profile_name:string|null;
-  picture_profile_url?:string;
+  profile_picture_name:string|null;
+  profile_picture_url?:string;
 }
 interface Ticket {
   id: number;

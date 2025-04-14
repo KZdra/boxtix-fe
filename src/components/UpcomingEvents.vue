@@ -2,18 +2,14 @@
   <section class="py-10 px-40 max-md:px-5 bg-boxblue">
     <h2 class="mb-6 text-lg font-semibold text-white">Daftar Event</h2>
     <div class="flex flex-wrap gap-2 w-full">
+      <h2 class="text-white font-bold text-2xl" v-if="events.length == 0">Event Tidak Ada</h2>
       <EventCard
-             v-for="event in events"
-             :key="event.id"
-          :event="event"
-          @click="handleEventClick(event)"
-        />
-      <!-- <EventCard
-        v-for="i in 20"
-        :key="i"
-        :event="events[i % events.length]"
-        @click="handleEventClick(events[i % events.length])"
-      /> -->
+        v-else
+        v-for="event in events"
+        :key="event.id"
+        :event="event"
+        @click="handleEventClick(event)"
+      />
     </div>
   </section>
 </template>

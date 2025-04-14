@@ -12,7 +12,7 @@
               :date="formatDate(event.start_date)"
               :title="event.title"
               :location="event.location"
-              :organizer-image="event.picture_profile_url ?? event.banner_url"
+              :organizer-image="event.profile_picture_url ?? event.banner_url"
               :organizer-name ="event.event_organizer"
             />
           </div>

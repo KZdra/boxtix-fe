@@ -1,8 +1,10 @@
 <template>
   <section class="py-10 px-40 max-md:px-5">
     <h2 class="mb-6 text-lg font-semibold">Rekomendasi Event</h2>
+    <h2 class="text-boxblue font-bold text-2xl" v-if="events.length == 0">Event Tidak Ada</h2>
 
     <Swiper
+      v-else
       :modules="[Navigation, Pagination, Autoplay]"
       :slides-per-view="4"
       :space-between="20"
@@ -36,8 +38,8 @@ defineProps<{ events: any[] }>();
 
 const router = useRouter();
 const handleEventClick = (event: any) => {
-    router.push(`/event/${event.toLowerCase()}`);
-  };
+  router.push(`/event/${event.toLowerCase()}`);
+};
 </script>
 
 <style scoped>

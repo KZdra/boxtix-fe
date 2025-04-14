@@ -2,7 +2,7 @@
     <div
       class="overflow-hidden bg-blue-50 rounded-lg h-[337px] w-[720px] max-md:w-full"
     >
-      <img :src="bannerImage" :alt="altText" class="w-full h-full object-cover" />
+      <img :src="bannerImage" :alt="altText" class="w-full h-full object-fill" />
     </div>
   </template>
   
