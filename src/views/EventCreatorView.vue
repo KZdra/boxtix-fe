@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import MainLayout from "@/components/layouts/MainLayout.vue";
 import { ElDialog } from "element-plus";
 import { apiService } from "@/utils/apiService";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 const dialogFormVisible = ref(false);
 const formLabelWidth = "200px";
 
@@ -80,7 +79,7 @@ const handleRegistration = async () => {
             timer:1500
           });
           setTimeout(() => {
-            window.location.href = "https://admin.boxtix.smkicb-teknika.sch.id";
+            window.location.href = "https://admin-boxtix.smkicb-teknika.sch.id/login";
           }, 2000);
         }
       } catch (error) {
