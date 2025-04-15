@@ -76,7 +76,7 @@ const pay = async () => {
     email: userC.value.email,
     event_id: event.value.id,
     ticket_id: cart.value[0].id,
-    category_id: cart.value[0].id_category,
+    category_id: cart.value[0].category_id,
   };
   await loadMidtransScript();
   const token = await apiService.apiPost("/api/pay", body);

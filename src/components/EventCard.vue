@@ -1,6 +1,6 @@
 <template>
   <article
-    class="overflow-hidden bg-white rounded-2xl shadow-[0_4px_8px_rgba(30,44,106,0.1)] transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
+    class="w-[350px] overflow-hidden bg-white rounded-2xl shadow-[0_4px_8px_rgba(30,44,106,0.1)] transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
     @click="$emit('click')"
   >
     <img

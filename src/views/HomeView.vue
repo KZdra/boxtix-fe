@@ -19,7 +19,7 @@ import ImageCarousel from "@/components/ImageCarousel.vue";
 import RecommendedEvents from "@/components/RecommendedEvents.vue";
 import UpcomingEvents from "@/components/UpcomingEvents.vue";
 import HowToBuySection from "@/components/HowToBuySection.vue";
-import { useHomeStore } from "@/stores/homeStore.ts";
+import { useHomeStore } from "@/stores/HomeStore";
 import { onMounted, ref, computed } from "vue";
 import Swal from "sweetalert2";
 

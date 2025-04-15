@@ -1,19 +1,19 @@
 <template>
   <section class="py-10 px-40 max-md:px-5">
     <h2 class="mb-6 text-lg font-semibold">Rekomendasi Event</h2>
-    <h2 class="text-boxblue font-bold text-2xl" v-if="events.length == 0">Event Tidak Ada</h2>
+    <h2 class="text-boxblue font-bold text-2xl" v-if="events.length == 0">
+      Event Tidak Ada
+    </h2>
 
     <Swiper
       v-else
       :modules="[Navigation, Pagination, Autoplay]"
       :slides-per-view="4"
-      :space-between="20"
-      :loop="events.length < 4 ? false : true"
-      :navigation="events.length < 4 ? false : true"
-      :pagination="
-        events.length < 4 ? { clickable: false } : { clickable: true }
-      "
-      :autoplay="events.length < 4 ? false : { delay: 3000 }"
+      :space-between="-100"
+      :loop="true"
+      :navigation="true"
+      :pagination="{ clickable: true }"
+      :autoplay="{ delay: 3000 }"
       class="w-full event-swiper"
     >
       <SwiperSlide v-for="event in events" :key="event.id">
@@ -51,6 +51,7 @@ const handleEventClick = (event: any) => {
 /* Kartu Event */
 .event-card {
   background: white;
+  width: 350px;
   border-radius: 12px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;

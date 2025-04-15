@@ -1,7 +1,7 @@
 <template>
   <section class="py-10 px-40 max-md:px-5 bg-boxblue">
     <h2 class="mb-6 text-lg font-semibold text-white">Daftar Event</h2>
-    <div class="flex flex-wrap gap-2 w-full">
+    <div class="flex flex-wrap gap-4 justify-center w-full">
       <h2 class="text-white font-bold text-2xl" v-if="events.length == 0">Event Tidak Ada</h2>
       <EventCard
         v-else
